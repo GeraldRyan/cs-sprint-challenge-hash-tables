@@ -5,38 +5,38 @@ def get_indices_of_item_weights(weights, length, limit):
     YOUR CODE HERE
     """
     # Your code here
-    
     hashsums = {}
     for index, w in enumerate(weights):
-        for index2, n in enumerate(weights):
-            if index == index2:
-                continue
-            hashsums[(index,index2)] = w+n
+        hashsums[w] = index
+    solution = []
+    for index, w in enumerate(weights):
+        if (limit - w) in hashsums:
+            solution.append(index)
+            solution.append(hashsums[limit-w])
+            if len(solution) ==2:
+                s = tuple(sorted(solution, reverse=True))
+                return s           
 
 
 
-        for t in hashsums:
-            if hashsums[t] == limit:
-                s = tuple(sorted(t, reverse=True))
-                return s
 
     # for w in weights:
     #     print(w)
 
-#     answer = []
-#     combinations = itertools.combinations(weights, 2)
-#     solution_weights = get_solution_weight(combinations)
-#     print(solution_weights)
-#     for i, w in enumerate(weights):
-#         if w == solution_weights[1]:
-#             answer.append(i)
-#         elif w == solution_weights[0]:
-#             answer.append(i)
+    # answer = []
+    # combinations = itertools.combinations(weights, 2)
+    # solution_weights = get_solution_weight(combinations)
+    # print(solution_weights)
+    # for i, w in enumerate(weights):
+    #     if w == solution_weights[1]:
+    #         answer.append(i)
+    #     elif w == solution_weights[0]:
+    #         answer.append(i)
     
-#     if answer:
-#         print(answer)
-#         return answer
-#     return None
+    # if answer:
+    #     print(answer)
+    #     return answer
+    # return None
 
 # def get_combinations(i, r=2):
 #     return itertools.combinations(i, 2)
