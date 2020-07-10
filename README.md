@@ -23,11 +23,28 @@ Commit your code regularly and meaningfully. This practice helps both you (in ca
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your answers beforehand.
 
 1. Hashing functions
+
+# Hashing functions are complex mathematical functions that take variable length input and return fixed length collision resistent output (strings or ints), used for many things- security, encryption, pki and to build hash tables. 
+
 2. Collision resolution
+
+# Collision is when two different inputs hash to the same hash. One way to deal with this in hash table is to make each entry a node that is a linked list (or normal list) and then you can find the index by using the typical hash method and then find the actual data sought after by looking through the list and for the unhashed key. 
+
 3. Performance of basic hash table operations
+
+# Hash tables are much more performative than other methods as y0ou don't have to binary search or anything like that. Your data is indexed by the hash of itself so you know right what index to go to, so it is between O(logN) to O(n) but much much closer to the O(logN). The O(n) is just an unrealistic absolute worst case scenario where all strings hash to same value and you have to run through the list of n elements to find the one with the matching key. 
+
 4. Load factor
+
+# load factor tells us how full a hash table is, irrespective of whether the load is based on filled indeces or on elements in a list all on one index. In other words, the number of data entries in a hash table divided by the number of slots or indeces. Therefore it can be over 100%. It can be infinite but generally...... (see #5 below)
+
 5. Automatic resizing
+
+# generally when the load factor hits .7 or whatever you decree, the table can be resized- most generally doubled in size. THat is there's 2x the number of slots. Each element in the old table whether the head of an index slot or part of a chain is rehashed to find a new home on the resized table. Since the index chosen is based on the mod of the number of spaces, each old element is a candidate for receiving a brand new index, so its possible nothing will be where it was before. Things have to spread out. 
+
 6. Various use cases for hash tables
+
+# quick lookup is one- where performance is wished for. Since it's also a dictionary like structure, it gives all the features of that, such as username lookup. 
 
 We expect you to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
